@@ -5,11 +5,12 @@ const app = express();
 
 const CLIENT_ID = '4a6baa63ea2641ada0e3e9c1f8e50a84';
 const CLIENT_SECRET = '05145083e7b94c3e90d9b66277164318';
-const REDIRECT_URI = 'https://mouri69-recommender.vercel.app/callback';
+const REDIRECT_URI = 'https://mouri69-recommender.vercel.app/callback'; // Use your deployed URL
 
 // Serve static files from the public directory
 app.use(express.static('public'));
 
+// Handle Spotify callback and fetch recommendations
 app.get('/callback', async (req, res) => {
     const code = req.query.code;
 
@@ -37,12 +38,11 @@ app.get('/callback', async (req, res) => {
                 'Authorization': `Bearer ${access_token}`
             },
             params: {
-                seed_genres: 'pop', // Example parameter, update as needed
+                seed_genres: 'pop', // Example parameter
                 limit: 10
             }
         });
 
-        // Render recommendations
         res.send(`
             <!DOCTYPE html>
             <html lang="en">
