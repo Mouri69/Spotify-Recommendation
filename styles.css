@@ -1,109 +1,118 @@
-/* Reset some default styles */
-body, h1, h2, p, input, button {
+/* General reset */
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
     box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
 /* Body styling */
 body {
+    background-color: #121212; /* Dark background */
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #121212; /* Dark background */
-    color: #fff; /* White text color */
-    text-align: center;
+    padding: 20px;
 }
 
-/* Main container */
+/* Main container styling */
 .container {
-    background: #1e1e1e; /* Slightly lighter dark background */
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    max-width: 400px;
+    background-color: #1c1c1c; /* Slightly lighter than background */
+    padding: 30px;
+    border-radius: 10px;
     width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }
 
 /* Title styling */
 h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 2rem;
     color: #1DB954; /* Spotify green */
+    margin-bottom: 20px;
 }
 
-/* Label and input styling */
+/* Label styling */
 label {
-    font-size: 1.2em;
+    font-size: 1rem;
     margin-bottom: 10px;
     display: block;
-    color: #b3b3b3; /* Lighter gray for labels */
+    color: #fff;
 }
 
+/* Input field styling */
 input[type="text"] {
+    width: calc(100% - 24px); /* Full width with padding adjustment */
     padding: 12px;
-    border: none;
-    border-radius: 6px;
     margin-bottom: 20px;
-    width: 100%;
-    font-size: 1.1em;
+    border-radius: 6px;
+    border: 1px solid #333;
     background-color: #333;
     color: #fff;
+    font-size: 1rem;
+    box-sizing: border-box;
 }
 
 /* Button styling */
 button {
+    width: 100%;
     padding: 12px;
     background-color: #1DB954; /* Spotify green */
     border: none;
     border-radius: 6px;
+    font-size: 1rem;
     color: white;
-    font-size: 1.2em;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%;
+    margin-bottom: 20px;
 }
 
 button:hover {
     background-color: #14833b; /* Darker green */
 }
 
-/* Recommendation list styling */
+/* Recommendations section */
 #recommendations {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 #recommendations h2 {
-    margin-bottom: 20px;
-    font-size: 1.8em;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #1DB954; /* Spotify green */
 }
 
 #recommendations p {
-    background: #282828;
-    padding: 12px;
+    background-color: #282828;
+    padding: 10px;
     border-radius: 6px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     color: #fff;
-    font-size: 1.1em;
+    font-size: 1rem;
 }
 
-/* Add some spacing and layout adjustment for mobile devices */
-@media (max-width: 600px) {
+/* Responsive adjustments */
+@media (max-width: 480px) {
     .container {
         padding: 20px;
     }
 
     h1 {
-        font-size: 2em;
+        font-size: 1.5rem;
     }
 
-    button {
-        font-size: 1.1em;
+    input[type="text"], button {
+        font-size: 0.9rem;
     }
 
-    input[type="text"] {
-        font-size: 1em;
+    #recommendations h2 {
+        font-size: 1.3rem;
+    }
+
+    #recommendations p {
+        font-size: 0.9rem;
     }
 }
