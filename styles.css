@@ -35,27 +35,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Label styling */
-label {
-    font-size: 1rem;
-    margin-bottom: 10px;
-    display: block;
-    color: #fff;
-}
-
-/* Input field styling */
-input[type="text"] {
-    width: calc(100% - 24px); /* Full width with padding adjustment */
-    padding: 12px;
-    margin-bottom: 20px;
-    border-radius: 6px;
-    border: 1px solid #333;
-    background-color: #333;
-    color: #fff;
-    font-size: 1rem;
-    box-sizing: border-box;
-}
-
 /* Button styling */
 button {
     width: 100%;
@@ -104,7 +83,7 @@ button:hover {
         font-size: 1.5rem;
     }
 
-    input[type="text"], button {
+    button {
         font-size: 0.9rem;
     }
 
