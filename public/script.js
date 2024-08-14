@@ -2,20 +2,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginButton = document.getElementById('login-button');
     const recommendationsContainer = document.getElementById('recommendations');
 
-    // Update with your deployed URL
+    // Spotify authorization URL
     const SPOTIFY_AUTH_URL = 'https://accounts.spotify.com/authorize?' +
         new URLSearchParams({
             client_id: '4a6baa63ea2641ada0e3e9c1f8e50a84',
             response_type: 'code',
-            redirect_uri: 'https://mouri69-recommender.vercel.app/callback',
+            redirect_uri: 'http://localhost:3000/callback',
             scope: 'user-library-read',
         }).toString();
-
 
     loginButton.addEventListener('click', () => {
         window.location.href = SPOTIFY_AUTH_URL;
     });
 
+    // Fetch recommendations from the server
     const fetchRecommendations = async () => {
         try {
             const response = await fetch('/callback');
