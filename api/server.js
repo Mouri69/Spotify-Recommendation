@@ -37,19 +37,36 @@ app.get('/callback', async (req, res) => {
                 'Authorization': `Bearer ${access_token}`
             },
             params: {
-                seed_genres: 'pop,hip-hop,rock', // Example genres
+                seed_genres: 'pop', // Example parameter, update as needed
                 limit: 10
             }
         });
 
-        res.json(recommendationsResponse.data.tracks.map(track => ({
-            name: track.name,
-            artists: track.artists.map(artist => artist.name).join(', '),
-            album: track.album.name,
-            release_date: track.album.release_date,
-            album_image: track.album.images[0].url,
-            preview_url: track.preview_url
-        })));
+        // Render recommendations
+        res.send(`
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="/styles.css">
+                <title>Recommendations</title>
+            </head>
+            <body>
+                <div class="container">
+                    <h1>Recommendations</h1>
+                    <ul>
+                        ${recommendationsResponse.data.tracks.map(track => `
+                            <li>
+                                <strong>${track.name}</strong> by ${track.artists.map(artist => artist.name).join(', ')}
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <a href="/">Back to Home</a>
+                </div>
+            </body>
+            </html>
+        `);
     } catch (error) {
         console.error('Error obtaining access token or recommendations:', error.message);
         res.status(500).send('Internal Server Error');
